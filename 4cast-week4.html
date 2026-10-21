@@ -1,0 +1,201 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>4CAST Outbound Report</title>
+<meta name="description" content="4CAST weekly outbound report by Leadgami: campaign stats, warm leads, and what we've learned.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#fff7f8;--paper:#ffffff;--panel:#f8fafc;--ink:#0f172a;--muted:#64748b;--line:#f1dfe3;
+  --navy:#1e3a8a;--navy-soft:rgba(30,58,138,.08);--rose:#fb7185;--rose-soft:rgba(251,113,133,.14);--rose-ink:#be123c;
+  --good:#059669;--good-soft:rgba(5,150,105,.12);--warn:#b45309;--warn-soft:rgba(245,158,11,.14);--fold:#fde2e7;
+  --shadow:0 1px 0 rgba(30,58,138,.04),0 10px 30px -18px rgba(30,58,138,.35);
+  --display:"Fredoka","Nunito",ui-rounded,system-ui,sans-serif;--body:"Nunito",ui-rounded,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1224;--paper:#141c35;--panel:#18213d;--ink:#eef2ff;--muted:#9aa6c4;--line:#26304f;
+  --navy:#a5b8f5;--navy-soft:rgba(165,184,245,.12);--rose:#fb8399;--rose-soft:rgba(251,113,133,.18);--rose-ink:#fda4b4;
+  --good:#34d399;--good-soft:rgba(52,211,153,.14);--warn:#fbbf24;--warn-soft:rgba(251,191,36,.14);--fold:#3a2440;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.7);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1224;--paper:#141c35;--panel:#18213d;--ink:#eef2ff;--muted:#9aa6c4;--line:#26304f;
+  --navy:#a5b8f5;--navy-soft:rgba(165,184,245,.12);--rose:#fb8399;--rose-soft:rgba(251,113,133,.18);--rose-ink:#fda4b4;
+  --good:#34d399;--good-soft:rgba(52,211,153,.14);--warn:#fbbf24;--warn-soft:rgba(251,191,36,.14);--fold:#3a2440;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.7);color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:40px 64px;margin:0}
+.wrap{max-width:980px;margin-inline:auto;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+.hero{display:grid;gap:14px;padding-block:8px 4px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--rose-ink);background:var(--rose-soft);padding:6px 12px;border-radius:999px}
+.hero h1{font-size:clamp(34px,6vw,56px);font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--rose)}
+.lead{font-size:18px;color:var(--muted);max-width:64ch}
+.lead b{color:var(--ink)}
+.card{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:24px;min-width:0}
+.card.fold::after{content:"";position:absolute;top:-1.5px;right:-1.5px;width:34px;height:34px;border-top-right-radius:22px;background:linear-gradient(225deg,var(--bg) 0 50%,var(--fold) 50% 100%);border-bottom-left-radius:10px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stat{background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;min-width:0}
+.stat .k{font-size:13px;font-weight:700;color:var(--muted)}
+.stat .v{font-family:var(--display);font-weight:600;font-size:34px;color:var(--navy);line-height:1.1}
+.stat .s{font-size:13px;color:var(--muted)}
+.chip{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;vertical-align:middle}
+.chip.good{color:var(--good);background:var(--good-soft)}
+.chip.warn{color:var(--warn);background:var(--warn-soft)}
+.chip.rose{color:var(--rose-ink);background:var(--rose-soft)}
+.chip.soft{color:var(--muted);background:var(--panel);border:1px solid var(--line)}
+.joao{display:flex;gap:18px;align-items:center;background:linear-gradient(120deg,var(--navy-soft),var(--rose-soft));border:1.5px solid var(--line);border-radius:22px;padding:20px 22px}
+.joao .avatar{flex:none;width:56px;height:56px;border-radius:50%;background:var(--good);color:var(--paper);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:24px;box-shadow:0 0 0 4px var(--paper)}
+.joao h3{font-size:20px;font-weight:600;color:var(--navy)}
+.joao p{color:var(--muted);font-size:15px}
+.camps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.camp{background:var(--panel);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:8px;align-content:start;min-width:0}
+.camp .chip{width:max-content}
+.camp h3{font-size:19px;font-weight:600;color:var(--navy)}
+.camp p{font-size:14px;color:var(--muted)}
+.camp dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0 0}
+.camp dl div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center}
+.camp dt{font-size:11.5px;font-weight:700;color:var(--muted)}
+.camp dd{margin:0;font-family:var(--display);font-weight:600;font-size:20px;color:var(--navy)}
+.ch-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.badge{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--rose-soft);color:var(--rose-ink)}
+.badge svg{width:22px;height:22px}
+.ch-head h2{font-size:24px;font-weight:600}
+.ch-sub{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.funnel{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.step{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
+.step .lbl{font-weight:700;font-size:14.5px}
+.step .val{font-family:var(--display);font-weight:600;font-size:20px;color:var(--navy)}
+.step .val small{font-family:var(--body);font-size:12.5px;font-weight:700;color:var(--muted);margin-left:6px}
+.bar{grid-column:1/-1;height:12px;border-radius:999px;background:var(--panel);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:999px;min-width:6px;background:var(--rose)}
+.bar i.zero{min-width:0;width:0!important}
+.note{margin-top:18px;font-size:14px;color:var(--muted);background:var(--panel);border-radius:14px;padding:12px 14px}
+.note b{color:var(--ink)}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.q{margin:0;background:var(--panel);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:10px;min-width:0}
+.q blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:17px;line-height:1.35;color:var(--navy)}
+.q figcaption{font-size:13px;font-weight:700;color:var(--muted)}
+.said h2,.learn h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.said .ch-sub,.learn .ch-sub{margin-bottom:16px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.two h2{font-size:22px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px}
+.list li::before{content:"";width:8px;height:8px;border-radius:50%;margin-top:8px;background:var(--mk)}
+.wins{--mk:var(--good)}
+.watch{--mk:var(--warn)}
+.list b{color:var(--ink)}
+.list span{color:var(--muted)}
+.next h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.next .ch-sub{margin-bottom:14px}
+.todo{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.todo label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--panel);cursor:pointer;font-size:15px}
+.todo input{appearance:none;flex:none;width:22px;height:22px;border-radius:8px;border:2px solid var(--rose);background:var(--paper);display:grid;place-items:center;margin:0;cursor:pointer}
+.todo input:checked{background:var(--rose)}
+.todo input:checked::after{content:"";width:6px;height:11px;border:solid var(--paper);border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.todo input:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.todo input:checked + span{color:var(--muted);text-decoration:line-through}
+footer{text-align:center;color:var(--muted);font-size:13px}
+footer b{color:var(--rose-ink)}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.camps{grid-template-columns:1fr}.quotes{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+@media (max-width:420px){.joao{flex-direction:column;align-items:flex-start}.stat .v{font-size:28px}}
+</style></head><body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Outbound report · Week 4 · 21 Oct 2026</span>
+    <h1>A warm lead in the funnel, <em>and more sending every day</em></h1>
+    <p class="lead">Across 3 campaigns we have sent <b>5,290 emails</b> to <b>2,999 organizations</b>, with <b>21 real replies</b> and a clean <b>1.2% bounce rate</b>. <!-- EDIT: rewrite this hero lead for the client. --></p>
+  </header>
+
+  <section class="stats" aria-label="Headline numbers">
+    <div class="stat"><span class="k">Emails sent</span><span class="v num">5,290</span><span class="s">to 2,999 leads · 3 campaigns</span></div>
+    <div class="stat"><span class="k">Organizations reached</span><span class="v num">2,999</span><span class="s">contacted</span></div>
+    <div class="stat"><span class="k">Real replies</span><span class="v num">21</span><span class="s">bounce rate 1.2%</span></div>
+    <div class="stat"><span class="k">Interested</span><span class="v num">1</span><span class="s"><span class="chip good">Following up</span></span></div>
+  </section>
+
+  <section class="joao" aria-label="First interested lead"><span class="avatar" aria-hidden="true">L</span><div><h3>Learnwelleducation is interested <span class="chip good">Interested</span></h3><p>They replied with interest from the Salesforce campaign and we are following up to book a time. <!-- EDIT: add the name and the plan --></p></div></section>
+
+  <section class="card fold">
+    <div class="ch-head">
+      <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></span>
+      <h2>3 campaigns</h2>
+    </div>
+    <p class="ch-sub">Each prospect hears the angle that fits their tools. Every message is written for the specific organization.</p>
+    <div class="camps">
+      <div class="camp"><span class="chip good">Live</span><h3>Hubspot</h3><p>Started 2026-09-30</p><dl><div><dt>Leads</dt><dd class="num">1,906</dd></div><div><dt>Sent</dt><dd class="num">3,147</dd></div><div><dt>Replies</dt><dd class="num">12</dd></div></dl></div>
+      <div class="camp"><span class="chip good">Live · 1 interested</span><h3>Salesforce</h3><p>Started 2026-09-30</p><dl><div><dt>Leads</dt><dd class="num">812</dd></div><div><dt>Sent</dt><dd class="num">1,589</dd></div><div><dt>Replies</dt><dd class="num">6</dd></div></dl></div>
+      <div class="camp"><span class="chip soft">Completed</span><h3>Pardot</h3><p>Started 2026-09-30</p><dl><div><dt>Leads</dt><dd class="num">281</dd></div><div><dt>Sent</dt><dd class="num">554</dd></div><div><dt>Replies</dt><dd class="num">3</dd></div></dl></div>
+    </div>
+    <ol class="funnel" style="margin-top:22px">
+      <li class="step"><span class="lbl">Organizations contacted</span><span class="val num">2,999</span><div class="bar"><i  style="width:100.0%"></i></div></li>
+      <li class="step"><span class="lbl">Any reply (incl. out-of-office)</span><span class="val num">115<small>3.8%</small></span><div class="bar"><i  style="width:3.8%"></i></div></li>
+      <li class="step"><span class="lbl">Real replies</span><span class="val num">21<small>0.7%</small></span><div class="bar"><i  style="width:0.7%"></i></div></li>
+      <li class="step"><span class="lbl">Interested</span><span class="val num">1<small>scheduling</small></span><div class="bar"><i  style="width:4%"></i></div></li>
+    </ol>
+    <p class="note"><b>Deliverability is healthy:</b> 62 bounces across 5,290 sends is a 1.2% bounce rate, well under the 5% safety line, so the domains stay in good standing.</p>
+  </section>
+
+  <section class="card said"><h2>In their words</h2><p class="ch-sub">Replies worth following up this week.</p><div class="quotes"><figure class="q"><blockquote>"Yes I would be interested in a conversation. Get Outlook for iOS"</blockquote><figcaption>Learnwelleducation · Salesforce · <span class="chip good">Interested</span></figcaption></figure></div></section>
+
+  <!-- EDIT: refine the learnings for this client (exclude list mistakes; say what we learned). -->
+  <section class="card learn">
+    <h2>What we've learned</h2>
+    <p class="ch-sub">Four weeks of real replies sharpen the targeting and the message.</p>
+    <ul class="list wins">
+      <li><div><b>Direct-care providers respond best.</b> <span>Focus the list where the message lands.</span></div></li>
+      <li><div><b>Segment the message.</b> <span>Associations and providers hear different angles.</span></div></li>
+      <li><div><b>Reserve the replace angle for fits.</b> <span>Skip orgs that get their CRM for free.</span></div></li>
+      <li><div><b>Timing matters.</b> <span>Follow-ups are set for when people return.</span></div></li>
+      <!-- EDIT: replace with this client's real learnings; do NOT expose list mistakes. -->
+    </ul>
+  </section>
+
+  <section class="two">
+    <div class="card wins">
+      <h2><span class="dot" style="background:var(--good)"></span>What's working</h2>
+      <ul class="list">
+        <li><div><b>First interested lead.</b> <span>Learnwelleducation, now following up.</span></div></li>
+      <li><div><b>Clean deliverability.</b> <span>1.2% bounce across 5,290 sends.</span></div></li>
+      <li><div><b>3 campaigns live.</b> <span>Each with its own angle.</span></div></li>
+      </ul>
+    </div>
+    <div class="card watch">
+      <h2><span class="dot" style="background:var(--warn)"></span>What to watch</h2>
+      <ul class="list">
+        <li><div><b>Reply volume is early.</b> <span>21 real replies so far; the curve builds with follow-ups.</span></div></li>
+      <li><div><b>Out-of-office season.</b> <span>A second pass will catch returners.</span></div></li>
+      <li><div><b>Room to scale.</b> <span>Widen the top of funnel next.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card fold next">
+    <h2>Next steps for week 5</h2>
+    <p class="ch-sub">Land the warm leads, sharpen the offer, widen reach.</p>
+    <ul class="todo">
+      <li><label for="t1"><input type="checkbox" id="t1"><span>Lock a time with Learnwelleducation</span></label></li>
+      <li><label for="t2"><input type="checkbox" id="t2"><span>Sharpen the offer (free assessment / audit as the CTA)</span></label></li>
+      <li><label for="t3"><input type="checkbox" id="t3"><span>Re-send to the out-of-office batch as people return</span></label></li>
+      <li><label for="t4"><input type="checkbox" id="t4"><span>Widen reach for next week</span></label></li>
+      <li><label for="t5"><input type="checkbox" id="t5"><span>Review reply and interested rates at week&#x27;s end</span></label></li>
+    </ul>
+  </section>
+
+  <footer>Made with care by <b>Leadgami</b> · numbers from Plusvibe, 24 Sep to 21 Oct 2026</footer>
+</div>
+<script>
+(function(){
+  var k="4cast-wk4-";
+  var boxes=document.querySelectorAll('.todo input');
+  boxes.forEach(function(b){
+    try{ if(localStorage.getItem(k+b.id)==='1') b.checked=true; }catch(e){}
+    b.addEventListener('change',function(){ try{ localStorage.setItem(k+b.id,b.checked?'1':'0'); }catch(e){} });
+  });
+})();
+</script>
+</body></html>
