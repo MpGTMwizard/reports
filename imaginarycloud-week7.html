@@ -1,0 +1,325 @@
+<!doctype html><html lang=en><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Imaginary Cloud Outbound Report</title>
+<meta name="description" content="Imaginary Cloud x Leadgami outbound report, week 7.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: a soft folded-paper report: hero note, two channel "cards" with mini funnels, then a two-column wins / watch list and a checklist. */
+:root{
+  --bg:#fff7f8;
+  --paper:#ffffff;
+  --panel:#f8fafc;
+  --ink:#0f172a;
+  --muted:#64748b;
+  --line:#f1dfe3;
+  --navy:#1e3a8a;
+  --navy-soft:rgba(30,58,138,.08);
+  --rose:#fb7185;
+  --rose-soft:rgba(251,113,133,.14);
+  --rose-ink:#be123c;
+  --good:#059669;
+  --good-soft:rgba(5,150,105,.12);
+  --warn:#b45309;
+  --warn-soft:rgba(245,158,11,.14);
+  --fold:#fde2e7;
+  --shadow:0 1px 0 rgba(30,58,138,.04),0 10px 30px -18px rgba(30,58,138,.35);
+  --display:"Fredoka","Nunito",ui-rounded,system-ui,sans-serif;
+  --body:"Nunito",ui-rounded,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1224;--paper:#141c35;--panel:#18213d;--ink:#eef2ff;--muted:#9aa6c4;--line:#26304f;
+  --navy:#a5b8f5;--navy-soft:rgba(165,184,245,.12);--rose:#fb8399;--rose-soft:rgba(251,113,133,.18);--rose-ink:#fda4b4;
+  --good:#34d399;--good-soft:rgba(52,211,153,.14);--warn:#fbbf24;--warn-soft:rgba(251,191,36,.14);--fold:#3a2440;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.7);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1224;--paper:#141c35;--panel:#18213d;--ink:#eef2ff;--muted:#9aa6c4;--line:#26304f;
+  --navy:#a5b8f5;--navy-soft:rgba(165,184,245,.12);--rose:#fb8399;--rose-soft:rgba(251,113,133,.18);--rose-ink:#fda4b4;
+  --good:#34d399;--good-soft:rgba(52,211,153,.14);--warn:#fbbf24;--warn-soft:rgba(251,191,36,.14);--fold:#3a2440;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.7);color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:40px 64px}
+.wrap{max-width:980px;margin-inline:auto;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{display:grid;gap:14px;padding-block:8px 4px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--rose-ink);background:var(--rose-soft);padding:6px 12px;border-radius:999px}
+.hero h1{font-size:clamp(34px,6vw,56px);font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--rose)}
+.lead{font-size:18px;color:var(--muted);max-width:62ch}
+.lead b{color:var(--ink)}
+
+/* folded-paper card */
+.card{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:24px;min-width:0}
+.card.fold::after{content:"";position:absolute;top:-1.5px;right:-1.5px;width:34px;height:34px;border-top-right-radius:22px;background:linear-gradient(225deg,var(--bg) 0 50%,var(--fold) 50% 100%);border-bottom-left-radius:10px}
+
+/* headline stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stat{background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;min-width:0}
+.stat .k{font-size:13px;font-weight:700;color:var(--muted)}
+.stat .v{font-family:var(--display);font-weight:600;font-size:34px;color:var(--navy);line-height:1.1}
+.stat .s{font-size:13px;color:var(--muted)}
+.chip{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;vertical-align:middle}
+.chip.good{color:var(--good);background:var(--good-soft)}
+.chip.warn{color:var(--warn);background:var(--warn-soft)}
+.chip.rose{color:var(--rose-ink);background:var(--rose-soft)}
+
+/* channels */
+.channels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ch-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.badge{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none}
+.badge svg{width:22px;height:22px}
+.badge.li{background:var(--navy-soft);color:var(--navy)}
+.badge.em{background:var(--rose-soft);color:var(--rose-ink)}
+.ch-head h2{font-size:24px;font-weight:600}
+.ch-sub{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.funnel{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.step{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
+.step .lbl{font-weight:700;font-size:14.5px}
+.step .val{font-family:var(--display);font-weight:600;font-size:20px;color:var(--navy)}
+.step .val small{font-family:var(--body);font-size:12.5px;font-weight:700;color:var(--muted);margin-left:6px}
+.bar{grid-column:1/-1;height:12px;border-radius:999px;background:var(--panel);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:999px;min-width:6px}
+.li .bar i{background:var(--navy)}
+.em .bar i{background:var(--rose)}
+.bar i.zero{min-width:0;width:0!important}
+.note{margin-top:18px;font-size:14px;color:var(--muted);background:var(--panel);border-radius:14px;padding:12px 14px}
+.note b{color:var(--ink)}
+
+/* joao callout */
+.joao{display:flex;gap:18px;align-items:center;background:linear-gradient(120deg,var(--navy-soft),var(--rose-soft));border:1.5px solid var(--line);border-radius:22px;padding:20px 22px}
+.joao .avatar{flex:none;width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--paper);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:24px;box-shadow:0 0 0 4px var(--paper)}
+.joao h3{font-size:20px;font-weight:600;color:var(--navy)}
+.joao p{color:var(--muted);font-size:15px}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--good);background:var(--good-soft);padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* wins / watch */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.two h2{font-size:22px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px}
+.list li::before{content:"";width:8px;height:8px;border-radius:50%;margin-top:8px;background:var(--mk)}
+.wins{--mk:var(--good)}
+.watch{--mk:var(--warn)}
+.list b{color:var(--ink)}
+.list span{color:var(--muted)}
+
+/* next steps */
+.next h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.next .ch-sub{margin-bottom:14px}
+.todo{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.todo label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--panel);cursor:pointer;font-size:15px}
+.todo input{appearance:none;flex:none;width:22px;height:22px;border-radius:8px;border:2px solid var(--rose);background:var(--paper);display:grid;place-items:center;margin:0;cursor:pointer}
+.todo input:checked{background:var(--rose)}
+.todo input:checked::after{content:"";width:6px;height:11px;border:solid var(--paper);border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.todo input:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.todo input:checked + span{color:var(--muted);text-decoration:line-through}
+
+footer{text-align:center;color:var(--muted);font-size:13px}
+footer b{color:var(--rose-ink)}
+
+@media (max-width:820px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.channels,.two{grid-template-columns:1fr}}
+@media (max-width:420px){.joao{flex-direction:column;align-items:flex-start}.stat .v{font-size:28px}}
+@media (prefers-reduced-motion:reduce){.live::before{animation:none}}
+
+/* quotes */
+.said h2,.fresh h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.said .ch-sub,.fresh .ch-sub{margin-bottom:16px}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.q{margin:0;background:var(--panel);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:10px;min-width:0}
+.q blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:17px;line-height:1.35;color:var(--navy)}
+.q figcaption{font-size:13px;font-weight:700;color:var(--muted)}
+.said .note,.fresh .note{margin-top:16px}
+.joao .avatar{background:var(--good)}
+.joao h3 .chip{margin-left:6px}
+/* new campaigns */
+.camps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.camp{background:var(--panel);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:8px;align-content:start;min-width:0}
+.camp .chip{width:max-content}
+.camp h3{font-size:19px;font-weight:600;color:var(--navy)}
+.camp p{font-size:14.5px;color:var(--muted)}
+.camp dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0 0}
+.camp dl div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.camp dt{font-size:12px;font-weight:700;color:var(--muted)}
+.camp dd{margin:0;font-family:var(--display);font-weight:600;font-size:20px;color:var(--navy)}
+.camp dd small{display:block;font-family:var(--body);font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.2}
+/* lead lists */
+.list-d{margin-top:14px;border:1.5px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}
+.list-d summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;padding:14px 18px;font-family:var(--display);font-weight:600;font-size:17px;color:var(--navy)}
+.list-d summary::-webkit-details-marker{display:none}
+.list-d summary::before{content:"+";display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:var(--rose-soft);color:var(--rose-ink);font-size:18px;line-height:1;margin-right:-2px;order:-1}
+.list-d[open] summary::before{content:"\2212"}
+.list-d summary span:first-of-type{flex:1;min-width:0}
+.list-d summary:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+.sum-meta{font-family:var(--body);font-size:13px;font-weight:700;color:var(--muted)}
+.tbl{overflow-x:auto;border-top:1.5px solid var(--line);max-height:520px;overflow-y:auto}
+.tbl table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+.tbl th{position:sticky;top:0;background:var(--panel);text-align:left;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 14px}
+.tbl td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+.tbl td b{display:block;font-weight:700}
+.tbl td span:not(.chip){display:block;font-size:12.5px;color:var(--muted)}
+.tbl td.co{font-weight:700;color:var(--navy)}
+.chip.soft{color:var(--muted);background:var(--panel);border:1px solid var(--line)}
+@media (max-width:820px){.quotes,.camps{grid-template-columns:1fr}}
+
+.camps3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.learn h2{font-size:22px;font-weight:600;margin-bottom:14px}
+.learn{--mk:var(--rose)}
+
+.pipe h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.pipe .ch-sub{margin-bottom:16px}
+.tbl-open{max-height:none;overflow-y:visible;border:1.5px solid var(--line);border-radius:14px}
+.tbl-open th{position:static}
+.tbl td.co span{display:block;font-size:12.5px;font-weight:600;color:var(--muted)}
+.tbl td .chip{white-space:nowrap}
+.fresh .camps{margin-top:0}
+.todo .chip{margin-left:4px}
+.todo input:checked + span .chip{text-decoration:none}
+.next-up .avatar{background:var(--rose)}
+.coming{--mk:var(--navy)}
+
+.coming{--mk:var(--navy)}
+.coming h2{font-size:22px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.tbl td .chip{white-space:normal}
+</style></head><body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Outbound report · Week 7 · 17 Nov 2026</span>
+    <h1>LinkedIn keeps climbing, <em>and a sharper list is out</em></h1>
+    <p class="lead">LinkedIn passed <b>1,800 requests</b> and <b>50 replies</b>, and acceptance rose again to <b>18.5%</b>. Email picked up too, with <b>1,121 emails</b> to <b>650 new leads</b> this week, including a new campaign built on the Transurb profile that went out on both channels. Two meetings booked so far, and close to <b>600 new companies</b> are next in line.</p>
+  </header>
+
+  <section class="stats" aria-label="Headline numbers">
+    <div class="stat"><span class="k">Emails sent</span><span class="v num">6,721</span><span class="s">to 3,549 leads · <span class="chip rose">+1,121 this week</span></span></div>
+    <div class="stat"><span class="k">LinkedIn requests</span><span class="v num">1,889</span><span class="s">350 accepted · <span class="chip rose">+372 this week</span></span></div>
+    <div class="stat"><span class="k">Real replies</span><span class="v num">86</span><span class="s">35 email + 51 LinkedIn · <span class="chip rose">61 last week</span></span></div>
+    <div class="stat"><span class="k">Meetings booked</span><span class="v num">2</span><span class="s"><span class="chip good">Transurb + Norse Atlantic</span></span></div>
+  </section>
+
+  <section class="joao" aria-label="New campaign">
+    <span class="avatar" aria-hidden="true">T</span>
+    <div>
+      <h3>Built from your feedback: Transurb lookalikes <span class="chip good">Live</span></h3>
+      <p>Your notes on Transurb shaped this list: mid-size companies with their own development team, where software is becoming a bigger part of what they sell. This week 50 decision makers received both emails, and 66 received a LinkedIn request from Guilherme or João.</p>
+    </div>
+  </section>
+
+  <section class="channels">
+    <article class="card fold li">
+      <div class="ch-head">
+        <span class="badge li" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg></span>
+        <h2>LinkedIn</h2>
+      </div>
+      <p class="ch-sub">Both meetings came from this channel, and it added 15 replies this week.</p>
+      <ol class="funnel">
+        <li class="step"><span class="lbl">Connections sent</span><span class="val num">1,889</span><div class="bar"><i style="width:100%"></i></div></li>
+        <li class="step"><span class="lbl">Accepted</span><span class="val num">350<small>18.5%</small></span><div class="bar"><i style="width:18.5%"></i></div></li>
+        <li class="step"><span class="lbl">Messaged</span><span class="val num">301<small>86% of accepted</small></span><div class="bar"><i style="width:15.9%"></i></div></li>
+        <li class="step"><span class="lbl">Replied</span><span class="val num">51<small>16.9% of messaged</small></span><div class="bar"><i style="width:2.7%"></i></div></li>
+        <li class="step"><span class="lbl">Meetings booked</span><span class="val num">2</span><div class="bar"><i style="width:0.11%"></i></div></li>
+      </ol>
+      <p class="note"><b>Both accounts are pulling their weight:</b> Guilherme 949 requests, 170 accepted (17.9%). João 940 requests, 180 accepted (19.1%). Another 686 people from the Hidden Software list are still queued.</p>
+    </article>
+
+    <article class="card fold em">
+      <div class="ch-head">
+        <span class="badge em" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <h2>Email</h2>
+      </div>
+      <p class="ch-sub">This week 1,121 emails went out to 650 new leads, including a hand-picked list of 50 decision makers at Transurb lookalikes.</p>
+      <ol class="funnel">
+        <li class="step"><span class="lbl">Leads contacted</span><span class="val num">3,549</span><div class="bar"><i style="width:100%"></i></div></li>
+        <li class="step"><span class="lbl">Any reply (incl. out-of-office)</span><span class="val num">125<small>3.5%</small></span><div class="bar"><i style="width:3.5%"></i></div></li>
+        <li class="step"><span class="lbl">Real replies</span><span class="val num">35<small>1.0%</small></span><div class="bar"><i style="width:1.0%"></i></div></li>
+        <li class="step"><span class="lbl">Positive replies</span><span class="val num">0</span><div class="bar"><i class="zero"></i></div></li>
+      </ol>
+      <p class="note"><b>Clean data:</b> only 36 bad addresses and 0 unsubscribes. The next email list is much bigger, see below.</p>
+    </article>
+  </section>
+
+  <section class="card pipe">
+    <h2>Open doors</h2>
+    <p class="ch-sub">Replies that point somewhere useful. Each one has a next step on our side.</p>
+    <div class="tbl tbl-open">
+      <table>
+        <thead><tr><th>Company</th><th>What they said</th><th>Our next step</th></tr></thead>
+        <tbody>
+          <tr><td class="co">VISICS<span>Tony Zadnikar</span></td><td>Named René Slegers as the right contact</td><td><span class="chip rose">Reach out to René</span></td></tr>
+          <tr><td class="co">Lanes Group<span>Kyle Burgess</span></td><td>Pointed us to their IT and transformation team</td><td><span class="chip rose">Find and contact the IT lead</span></td></tr>
+          <tr><td class="co">Cummins Generator Technologies<span>Sarah Nicholls</span></td><td>Travelling, will pick it up on her return</td><td><span class="chip warn">Follow up when she's back</span></td></tr>
+          <tr><td class="co">Devro<span>Alonso Gómez</span></td><td>No project today, but wants to keep the contact</td><td><span class="chip warn">Stay in touch</span></td></tr>
+          <tr><td class="co">NKT<span>Raphael Goerner</span></td><td>Offered an intro to their Digital Lead</td><td><span class="chip warn">Keep following up</span></td></tr>
+          <tr><td class="co">Aion Silicon<span>Mindy Kalyan</span></td><td>Referred by Satish Sunkari for contracting</td><td><span class="chip soft">Request sent</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card said">
+    <h2>What they're telling us</h2>
+    <p class="ch-sub">The most useful replies this week: a "not now", or a pointer to the right person.</p>
+    <div class="quotes">
+      <figure class="q"><blockquote>"I am travelling right now so will pick up on my return."</blockquote><figcaption>Product Lifecycle Engineering Director, Cummins · LinkedIn · <span class="chip warn">Later</span></figcaption></figure>
+      <figure class="q"><blockquote>"I like to have contacts who could support just in case."</blockquote><figcaption>Field Technical Manager, Devro · LinkedIn · <span class="chip warn">Keep in touch</span></figcaption></figure>
+      <figure class="q"><blockquote>"René Slegers is the right contact."</blockquote><figcaption>VISICS · LinkedIn · <span class="chip good">Referral</span></figcaption></figure>
+      <figure class="q"><blockquote>"We are currently well situated with inhouse resources."</blockquote><figcaption>NFM Technology · LinkedIn · <span class="chip rose">Handled</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="card wins">
+      <h2><span class="dot" style="background:var(--good)"></span>What's working</h2>
+      <ul class="list">
+        <li><div><b>Two meetings booked.</b> <span>Transurb and Norse Atlantic, both from LinkedIn.</span></div></li>
+        <li><div><b>Acceptance back up to 18.5%.</b> <span>From 17.5% last week, and above 15% on both accounts.</span></div></li>
+        <li><div><b>Replies keep coming.</b> <span>25 new replies this week across both channels, 86 real replies in total.</span></div></li>
+        <li><div><b>Referrals.</b> <span>Two more people this week named who we should talk to instead.</span></div></li>
+      </ul>
+    </div>
+    <div class="card coming">
+      <h2><span class="dot" style="background:var(--navy)"></span>What's coming</h2>
+      <ul class="list">
+        <li><div><b>Hidden Software, batch 2.</b> <span>746 new contacts at 596 companies in the same six industries, for LinkedIn and email.</span></div></li>
+        <li><div><b>Lookalike follow-ups.</b> <span>The first lookalike connections have accepted and the follow-up messages are going out.</span></div></li>
+        <li><div><b>Referral outreach.</b> <span>René at VISICS and the IT lead at Lanes Group.</span></div></li>
+        <li><div><b>Your AI engineers angle.</b> <span>Certified AI engineers who build and orchestrate agents, going into the new copy.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card fold next">
+    <h2>Our next steps for week eight</h2>
+    <p class="ch-sub">Load the next big list, follow every open door, and keep LinkedIn moving.</p>
+    <ul class="todo">
+      <li><label for="t1"><input type="checkbox" id="t1"><span>Launch Hidden Software batch 2 on email and LinkedIn</span></label></li>
+      <li><label for="t2"><input type="checkbox" id="t2"><span>Reach out to René Slegers at VISICS, mentioning Tony</span></label></li>
+      <li><label for="t3"><input type="checkbox" id="t3"><span>Find the IT and transformation lead at Lanes Group</span></label></li>
+      <li><label for="t4"><input type="checkbox" id="t4"><span>Follow up with Cummins once Sarah is back</span></label></li>
+      <li><label for="t5"><input type="checkbox" id="t5"><span>Add the certified AI engineers angle to the new copy</span></label></li>
+      <li><label for="t6"><input type="checkbox" id="t6"><span>Re-check acceptance, replies and meetings booked at the end of week eight</span></label></li>
+    </ul>
+  </section>
+
+  <footer>Made with care by <b>Leadgami</b> · numbers from our LinkedIn and email tracking, 25 Sep to 17 Nov 2026</footer>
+</div>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.todo input');
+  boxes.forEach(function(b){
+    try{ if(localStorage.getItem('wk7-'+b.id)==='1') b.checked=true; }catch(e){}
+    b.addEventListener('change',function(){ try{ localStorage.setItem('wk7-'+b.id,b.checked?'1':'0'); }catch(e){} });
+  });
+})();
+</script>
+</body></html>
